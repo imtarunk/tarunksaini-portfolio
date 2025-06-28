@@ -79,7 +79,7 @@ const About = () => {
 
   const handleResumeClick = () => {
     const resumeUrl =
-      "https://drive.google.com/file/d/1vtfD4N3SaEcfbUyDK0RrSwet0ubzMIbo/view?usp=sharing"; // 🔥 Update with your resume link
+      "https://drive.google.com/file/d/1PkPj925nF6LnwP_Xr9OmzMm0IT_IiuFx/view?usp=drive_link"; // 🔥 Update with your resume link
     window.open(resumeUrl, "_blank", "noopener noreferrer");
   };
 
