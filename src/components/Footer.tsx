@@ -55,7 +55,8 @@ const Footer = () => {
             className="text-text-secondary text-sm"
             variants={itemVariants}
           >
-            © {currentYear} Tarun Saini. All rights reserved.
+            © {currentYear} 🚀 code<span className="text-red-500">x</span>
+            tarun.xyz — Built with ❤️ . All rights reserved.
           </motion.p>
 
           <motion.div

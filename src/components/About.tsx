@@ -169,8 +169,8 @@ const About = () => {
           )}
         </motion.p>
 
-        <div className="flex flex-wrap items-center gap-4 w-full">
-          <div className="flex items-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4 w-full">
+          <div className="flex flex-wrap items-center gap-4">
             <motion.button
               onClick={handleResumeClick}
               className="btn-primary text-sm flex items-center gap-2"
@@ -193,7 +193,7 @@ const About = () => {
               </motion.div>
             ))}
           </div>
-          <div className="ml-auto">
+          <div className="mt-4 sm:mt-0">
             <CalendlyButton />
           </div>
         </div>
