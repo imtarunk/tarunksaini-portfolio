@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { RxDownload } from "react-icons/rx";
 import { motion } from "framer-motion"; // ✅ Correct import
 import { RoughNotation } from "react-rough-notation";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 import SocialButtons from "./SocialButtons";
 import CalendlyButton from "./CalendlyButton";
