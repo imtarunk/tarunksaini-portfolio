@@ -19,7 +19,7 @@ export const socialsInfo: SocialLinkType[] = [
   {
     id: 3,
     name: "LinkedIn",
-    url: "https://www.linkedin.com/in/imtarunk/",
+    url: "https://www.linkedin.com/in/itarunsaini/",
     icon: RxLinkedinLogo,
   },
   {

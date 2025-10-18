@@ -6,27 +6,8 @@ import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 import SocialButtons from "./SocialButtons";
 import CalendlyButton from "./CalendlyButton";
+import { socialsInfo } from "../constants/socials";
 
-const socialsInfo = [
-  {
-    id: 1,
-    name: "GitHub",
-    url: "https://github.com/imtarunk",
-    icon: FaGithub,
-  },
-  {
-    id: 2,
-    name: "LinkedIn",
-    url: "https://www.linkedin.com/in/imtarunk/",
-    icon: FaLinkedin,
-  },
-  {
-    id: 3,
-    name: "Twitter",
-    url: "https://twitter.com/imtarunk",
-    icon: FaTwitter,
-  },
-];
 const DESCRIPTION_TEXT = {
   parts: [
     { text: "Hey! I'm ", highlight: false },
@@ -79,7 +60,7 @@ const About = () => {
 
   const handleResumeClick = () => {
     const resumeUrl =
-      "https://drive.google.com/file/d/1PkPj925nF6LnwP_Xr9OmzMm0IT_IiuFx/view?usp=drive_link"; // 🔥 Update with your resume link
+      "https://drive.google.com/file/d/1GewQz5FTtco52xXYJDLjUV78ESIHO0CU/view?usp=sharing"; // 🔥 Update with your resume link
     window.open(resumeUrl, "_blank", "noopener noreferrer");
   };
 
