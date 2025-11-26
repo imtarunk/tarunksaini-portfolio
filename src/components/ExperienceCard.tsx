@@ -47,9 +47,16 @@ const ExperienceCard = ({ experience }: { experience: ExperienceType }) => {
           className="h-10 w-10 rounded-full"
         />
         <div className="flex flex-col">
-          <h3 className="text-text-primary font-semibold">
-            {experience.designation}
-          </h3>
+          <div className="flex items-center gap-2">
+            <h3 className="text-text-primary font-semibold">
+              {experience.designation}
+            </h3>
+            {experience.company.includes("Knowlify") && experience.endDate === "Present" && (
+              <span className="px-2 py-0.5 text-xs font-medium bg-green-500 text-white rounded-full">
+                Current
+              </span>
+            )}
+          </div>
           <p className="text-sm text-text-secondary">{experience.company}</p>
         </div>
       </div>

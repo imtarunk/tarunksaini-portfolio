@@ -1,5 +1,17 @@
 export const experiences = [
   {
+    id: 4,
+    company: "Knowlify (YC S25)",
+    designation: "Software Engineer",
+    icon: "https://imgs.search.brave.com/KrI3YpCTUYEUwwBUZACUaYYNJCwYLn46tVRkBiJj8aM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9taW50/Y2RuLmNvbS9rbm93/bGlmeS03NzlhY2I3/Yy9Eemx1MjRlcExS/cEp4MVd3L2xvZ28v/YmxhY2tfa25vd2xp/ZnkucG5nP2ZpdD1t/YXgmYXV0bz1mb3Jt/YXQmbj1Eemx1MjRl/cExScEp4MVd3JnE9/ODUmcz00YmQzYmI0/N2FiODJhOGQxNDk4/MDZiZTVlZDAxYTdk/Ng",
+    startDate: "Nov 2025",
+    endDate: "Present",
+    companyUrl: "", // update if there's a real URL
+    location: "San Francisco Bay Area · Remote",
+    description:
+      "Software Engineer at KnowlifyAI | Building AI-driven products.",
+  },
+  {
     id: 3,
     company: "Hubvestor By Asante",
     designation: "CTO & Co-founder",
