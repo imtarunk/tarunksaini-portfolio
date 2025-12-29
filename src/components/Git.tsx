@@ -1,6 +1,6 @@
 import GitHubCalendar from "react-github-calendar";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const GithubStats = () => {
   const [isDark, setIsDark] = useState(false);

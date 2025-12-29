@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import EducationCard from "./EducationCard";
 import { educationList } from "../constants/education";
 

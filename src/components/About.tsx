@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { RxDownload } from "react-icons/rx";
-import { motion } from "framer-motion"; // ✅ Correct import
+import { motion } from "motion/react";
 import { RoughNotation } from "react-rough-notation";
 
 import SocialButtons from "./SocialButtons";
