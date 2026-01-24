@@ -19,6 +19,10 @@ import {
   SiRust,
   SiEthereum,
   SiWeb3Dotjs,
+  SiPython,
+  SiPytorch,
+  SiTensorflow,
+  SiHuggingface,
 } from "react-icons/si";
 
 const skills = [
@@ -29,6 +33,10 @@ const skills = [
   { icon: SiTailwindcss, name: "Tailwind CSS", color: "#06B6D4" },
   { icon: SiNodedotjs, name: "Node.js", color: "#339933" },
   { icon: SiExpress, name: "Express.js", color: "#000000", dynamicColor: true },
+  { icon: SiPython, name: "Python", color: "#3776AB" },
+  { icon: SiPytorch, name: "PyTorch", color: "#EE4C2C" },
+  { icon: SiTensorflow, name: "TensorFlow", color: "#FF6F00" },
+  { icon: SiHuggingface, name: "Hugging Face", color: "#FFD21E" },
   { icon: SiPrisma, name: "Prisma", color: "#0C344B" },
   { icon: SiMongodb, name: "MongoDB", color: "#47A248" },
   { icon: SiPostgresql, name: "PostgreSQL", color: "#336791" },
@@ -51,23 +59,21 @@ const skills = [
 const Skills = () => {
   return (
     <motion.section
-      className="mb-14 px-4 sm:px-8 md:px-16"
+      className="w-full"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.6 }}
       viewport={{ once: true }}
     >
-      <motion.h2
-        className="font-semibold italic text-xl sm:text-2xl md:text-3xl text-text-primary mb-6 text-center sm:text-left"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        Tech Stack
-      </motion.h2>
+      <div className="mb-10 block">
+        <h2 className="text-3xl font-bold tracking-tight text-text-primary sm:text-4xl mb-4">
+          Tech Stack
+        </h2>
+        <div className="w-20 h-1.5 bg-accent rounded-full opacity-30" />
+      </div>
 
       <motion.div
-        className="flex flex-wrap gap-3 sm:gap-5 justify-center sm:justify-start"
+        className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-10"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -75,7 +81,7 @@ const Skills = () => {
           hidden: {},
           visible: {
             transition: {
-              staggerChildren: 0.05,
+              staggerChildren: 0.03,
             },
           },
         }}
@@ -85,29 +91,22 @@ const Skills = () => {
           return (
             <motion.div
               key={skill.name}
-              className="relative p-4 rounded-lg shadow-md cursor-pointer hover:scale-110 transition-transform bg-transparent text-neutral-900 dark:text-white group"
+              className="group flex flex-col items-center gap-3 cursor-pointer"
               variants={{
-                hidden: { opacity: 0, y: 10 },
-                visible: { opacity: 1, y: 0 },
+                hidden: { opacity: 0, scale: 0.8 },
+                visible: { opacity: 1, scale: 1 },
               }}
-              title={skill.name}
+              whileHover={{ y: -5 }}
             >
-              <span
-                className={
-                  skill.dynamicColor ? "text-black dark:text-white" : ""
-                }
-              >
+              <div className="relative p-4 rounded-2xl bg-background-secondary border border-border-primary group-hover:border-accent group-hover:bg-accent-soft transition-all duration-300">
                 <Icon
-                  className="h-8 w-8"
-                  style={
-                    !skill.dynamicColor ? { color: skill.color } : undefined
-                  }
+                  className="h-7 w-7 sm:h-8 sm:w-8 transition-transform duration-300 group-hover:scale-110"
+                  style={!skill.dynamicColor ? { color: skill.color } : undefined}
                 />
-              </span>
-              {/* Tooltip */}
-              <div className="absolute left-1/2 -translate-x-1/2 -top-2 -translate-y-full px-2 py-1 rounded bg-neutral-800 text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-20 whitespace-nowrap">
-                {skill.name}
               </div>
+              <span className="text-[10px] sm:text-xs font-bold text-text-muted group-hover:text-text-primary transition-colors uppercase tracking-wider text-center">
+                {skill.name}
+              </span>
             </motion.div>
           );
         })}

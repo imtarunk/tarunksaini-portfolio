@@ -1,68 +1,39 @@
-import { useRef, useState } from "react";
 import { motion } from "motion/react";
 import { ExperienceType } from "../types";
 
 const ExperienceCard = ({ experience }: { experience: ExperienceType }) => {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [spot, setSpot] = useState({ x: 0, y: 0, show: false });
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const rect = cardRef.current?.getBoundingClientRect();
-    if (rect) {
-      setSpot({
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
-        show: true,
-      });
-    }
-  };
-
-  const handleMouseLeave = () => setSpot((s) => ({ ...s, show: false }));
-
   return (
     <motion.div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className="relative flex justify-between items-start transition-all duration-200 cursor-pointer  hover:shadow-[#14eba3]/40   overflow-hidden py-4 mx-1"
+      className="group relative flex flex-col sm:flex-row justify-between items-start sm:items-center p-6 rounded-2xl border border-transparent hover:border-border-primary hover:bg-background-secondary transition-all duration-300"
+      whileHover={{ x: 8 }}
     >
-      {/* Spotlight effect */}
-      {spot.show && (
-        <div
-          style={{
-            left: spot.x - 60,
-            top: spot.y - 60,
-            opacity: 0.7,
-            pointerEvents: "none",
-          }}
-          className="absolute w-32 h-32 rounded-full bg-[#14eba3]/20 blur-2xl z-0"
-        />
-      )}
-
-      {/* Content */}
-      <div className="flex gap-4 items-center z-10">
-        <img
-          src={experience.icon}
-          alt={experience.company}
-          className="h-10 w-10 rounded-full"
-        />
-        <div className="flex flex-col">
-          <div className="flex items-center gap-2">
-            <h3 className="text-text-primary font-semibold">
-              {experience.designation}
-            </h3>
-            {experience.company.includes("Knowlify") && experience.endDate === "Present" && (
-              <span className="px-2 py-0.5 text-xs font-medium bg-green-500 text-white rounded-full">
-                Current
+      <div className="flex gap-6 items-center">
+        <div className="p-3 rounded-xl bg-background-tertiary group-hover:bg-background-primary transition-colors">
+          <img
+            src={experience.icon}
+            alt={experience.company}
+            className="h-10 w-10 min-w-[40px] rounded-lg object-contain"
+          />
+        </div>
+        <div>
+          <h3 className="text-xl font-bold text-text-primary group-hover:text-accent transition-colors">
+            {experience.designation}
+          </h3>
+          <div className="flex items-center gap-2 mt-1">
+            <p className="text-md font-medium text-text-secondary">{experience.company}</p>
+            {experience.endDate === "Present" && (
+              <span className="px-2 py-0.5 text-[10px] font-bold tracking-widest uppercase bg-accent/20 text-accent rounded-md">
+                CURRENT
               </span>
             )}
           </div>
-          <p className="text-sm text-text-secondary">{experience.company}</p>
         </div>
       </div>
-      <p className="text-sm text-text-secondary whitespace-nowrap z-10">
-        {experience.startDate} - {experience.endDate}
-      </p>
+      <div className="mt-4 sm:mt-0 text-left sm:text-right">
+        <p className="text-sm font-bold text-text-muted uppercase tracking-widest">
+          {experience.startDate} — {experience.endDate}
+        </p>
+      </div>
     </motion.div>
   );
 };

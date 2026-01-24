@@ -2,36 +2,10 @@ import { RxArrowTopRight, RxGithubLogo } from "react-icons/rx";
 import { motion } from "motion/react";
 
 import { useTheme } from "../context/theme.context.tsx";
-
 import { ProjectType } from "../types";
 
 const ProjectCard = ({ project }: { project: ProjectType }) => {
   const { isDarkMode } = useTheme();
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const imageVariants = {
-    hidden: { scale: 1.1, opacity: 0, y: 20 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        delay: 0.2,
-      },
-    },
-  };
 
   const imageToUse =
     project.image.length > 1
@@ -42,90 +16,87 @@ const ProjectCard = ({ project }: { project: ProjectType }) => {
 
   return (
     <motion.div
-      className="rounded-xl shadow-lg shadow-[#14eba3]/20 hover:shadow-[#14eba3]/40 border-b-2 border-l-2 border-[#14eba3]/30"
-      variants={cardVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.2 }}
+      className="group flex flex-col bg-background-primary border border-border-primary rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-accent/5 hover:-translate-y-2"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
     >
-      <motion.div
-        className="overflow-hidden rounded-xl"
-        whileHover={{ scale: 1.02 }}
-        transition={{ duration: 0.2 }}
-      >
+      {/* Visual Focal Point: Larger Image Area */}
+      <div className="relative aspect-[16/11] w-full overflow-hidden bg-background-tertiary">
         <motion.img
           src={imageToUse}
           alt={project.title}
-          className="aspect-[16/10] h-full w-full"
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
           loading="lazy"
-          variants={imageVariants}
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.4 }}
         />
-      </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-t from-background-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-      <motion.div className="p-3 flex flex-col gap-2" variants={cardVariants}>
-        <div>
-          <motion.h3
-            className="text-md font-semibold text-text-primary"
-            whileHover={{ x: 4 }}
-            transition={{ duration: 0.2 }}
-          >
+        {/* Compact Status Badge */}
+        <div className="absolute top-4 right-4">
+          <span className={`px-2.5 py-1 text-[9px] font-black tracking-[0.15em] uppercase rounded-lg border shadow-sm backdrop-blur-md ${project.projectEnd === "Ongoing"
+              ? "bg-accent/10 text-accent border-accent/20"
+              : "bg-background-secondary/80 text-text-muted border-border-primary"
+            }`}>
+            {project.projectEnd === "Ongoing" ? "Live" : "Done"}
+          </span>
+        </div>
+      </div>
+
+      {/* Structured Content Area: More Compact */}
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
+        <div className="flex items-start justify-between mb-2">
+          <h3 className="text-lg font-black text-text-primary tracking-tight group-hover:text-accent transition-colors leading-none">
             {project.title}
-          </motion.h3>
-          <motion.p
-            className="mt-0 text-xs font-normal text-text-secondary"
-            variants={cardVariants}
-            transition={{ delay: 0.4 }}
-          >
-            {project.projectStart} - {project.projectEnd}
-          </motion.p>
-          <motion.p
-            className="mt-4 text-xs font-light text-text-primary line line-clamp-3"
-            variants={cardVariants}
-            transition={{ delay: 0.4 }}
-          >
-            {project.description}
-          </motion.p>
-          <motion.div className="flex flex-wrap gap-2 mt-4">
-            {project.techStack.map((item, index) => (
-              <p
-                className="text-[10px] px-1.5 py-1 rounded-md text-border-primary hover:text-border-primary-hover hover:bg-[#14eba3]/20 transition duration-500 ease-in-out border border-border-primary cursor-pointer"
-                key={index}
-              >
-                {item}
-              </p>
-            ))}
-          </motion.div>
+          </h3>
+          <span className="text-[10px] font-bold text-text-muted uppercase tracking-widest">
+            {project.projectStart}
+          </span>
         </div>
 
-        <div className="mt-4 flex justify-around items-center gap-2">
-          <motion.a
+        <p className="text-xs sm:text-sm leading-relaxed text-text-secondary mb-4 line-clamp-2 min-h-[2.8rem]">
+          {project.description}
+        </p>
+
+        {/* Minimal Tech Stack */}
+        <div className="flex flex-wrap gap-1.5 mb-6">
+          {project.techStack.slice(0, 5).map((item, index) => (
+            <span
+              key={index}
+              className="px-2 py-0.5 text-[9px] font-bold rounded bg-background-secondary text-text-muted border border-border-primary transition-all duration-300 group-hover:text-text-secondary"
+            >
+              {item}
+            </span>
+          ))}
+          {project.techStack.length > 5 && (
+            <span className="text-[9px] font-bold text-accent/60 italic">
+              +{project.techStack.length - 5}
+            </span>
+          )}
+        </div>
+
+        {/* Streamlined Action Buttons */}
+        <div className="mt-auto flex gap-3">
+          <a
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary text-xs flex justify-center items-center gap-2 w-1/2"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="flex-1 flex items-center justify-center gap-2 py-2 rounded-xl text-[11px] font-black uppercase tracking-wider bg-background-secondary text-text-primary border border-border-primary hover:bg-background-tertiary transition-all"
           >
-            Github
-            <RxGithubLogo className="h-4 w-4" />
-          </motion.a>
-          <motion.a
+            <RxGithubLogo className="text-base" />
+            Code
+          </a>
+          <a
             href={project.live}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary text-xs flex justify-center items-center gap-2 w-1/2"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="flex-1 flex items-center justify-center gap-2 py-2 rounded-xl text-[11px] font-black uppercase tracking-wider bg-text-primary text-background-primary hover:opacity-90 transition-all"
           >
-            Website
-            <RxArrowTopRight className="h-4 w-4" />
-          </motion.a>
+            <RxArrowTopRight className="text-base" />
+            Demo
+          </a>
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 };

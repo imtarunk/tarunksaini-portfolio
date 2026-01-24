@@ -42,13 +42,11 @@ const CalendlyButton = () => {
   return (
     <button
       onClick={handleClick}
-      className="btn-primary text-sm flex items-center gap-2 px-4 py-2 rounded bg-[#0069ff] text-white hover:bg-blue-700 transition"
+      className="flex items-center gap-3 px-8 py-4 rounded-full bg-background-secondary border border-border-primary text-text-primary font-bold text-lg hover:border-accent hover:bg-accent-soft transition-all duration-300 shadow-sm hover:shadow-md active:scale-95"
       type="button"
     >
       <SiCalendly
-        className="h-5 w-5"
-        color="#fff"
-        style={{ background: "#0069ff", borderRadius: "3px" }}
+        className="h-6 w-6 text-[#0069ff]"
       />
       Book a Meeting
     </button>

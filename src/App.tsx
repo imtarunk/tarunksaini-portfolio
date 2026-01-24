@@ -17,10 +17,12 @@ function App() {
       <CursorProvider>
         <div className="min-h-[calc(100vh-48px)] sm:min-h-[calc(100vh-96px)] flex flex-col">
           <Cursor />
-          <main className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20">
-            <div className="flex flex-col gap-y-4">
+          <main className="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex-grow">
+            <div className="flex flex-col gap-y-12 sm:gap-y-24">
               <Header />
-              <About />
+              <div className="-mt-6 sm:-mt-12">
+                <About />
+              </div>
               <Projects />
               <Experience />
               <Skills />

@@ -1,5 +1,28 @@
 export const projects = [
   {
+    id: 0,
+    title: "Matic AI",
+    projectStart: "Jan 2025",
+    projectEnd: "Ongoing",
+    description:
+      "Matic AI is an intelligent visual learning platform that transforms educational questions into clear, step-by-step visual answers. It helps users understand complex concepts one step at a time, making learning more intuitive and accessible for all audiences.",
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "AWS Lambda",
+      "Node.js",
+      "Python",
+      "OpenAI",
+      "LangChain",
+      "TailwindCSS",
+      "Vercel",
+      "AI/ML",
+    ],
+    live: "https://matic-rho.vercel.app/",
+    github: "https://github.com/imtarunk/main-maticai",
+    image: ["/matic-ai-thumbnail.png", "/matic-ai-thumbnail.png"],
+  },
+  {
     id: 1,
     title: "Clay",
     projectStart: "Apr 2025",

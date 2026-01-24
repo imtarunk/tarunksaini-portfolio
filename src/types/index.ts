@@ -11,6 +11,7 @@ export interface SocialLinkType {
   url: string;
   icon: IconType;
   isEmail?: boolean;
+  color?: string;
 }
 
 export interface ProjectType {

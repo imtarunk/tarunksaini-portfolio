@@ -1,74 +1,91 @@
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  @apply bg-background-primary text-text-primary transition-colors duration-300;
+}
+
+::selection {
+  @apply bg-accent-soft text-text-primary;
+}
+
+/* Scrollbar Theming */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background-primary;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-border-primary rounded-full hover:bg-text-muted;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* Text Colors */
-  --color-text-primary: theme("colors.neutral.900");
-  --color-text-primary-hover: theme("colors.neutral.200");
-  --color-text-secondary: theme("colors.neutral.500");
+  /* Refined Professional Palette */
+  --color-text-primary: #111827;
+  /* Gray 900 */
+  --color-text-secondary: #4b5563;
+  /* Gray 600 */
+  --color-text-muted: #9ca3af;
+  /* Gray 400 */
 
-  /* Background Colors */
-  --color-background-primary: theme("colors.neutral.100");
-  --color-background-primary-hover: theme("colors.neutral.800");
-  --color-background-secondary: theme("colors.neutral.200");
-  --color-background-tertiary: theme("colors.neutral.600");
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f9fafb;
+  /* Gray 50 */
+  --color-background-tertiary: #f3f4f6;
+  /* Gray 100 */
 
-  /* Button Colors */
-  --color-button-primary: theme("colors.neutral.800");
-  --color-button-primary-hover: theme("colors.neutral.700");
-  --color-button-text: theme("colors.neutral.100");
-  --color-button-secondary: theme("colors.neutral.200");
-  --color-button-secondary-hover: theme("colors.neutral.300");
+  --color-border-primary: #e5e7eb;
+  /* Gray 200 */
+  --color-accent: #14eba3;
+  --color-accent-soft: rgba(20, 235, 163, 0.1);
 
-  --color-border-primary: theme("colors.neutral.400");
-
-  --color-border-primary: theme("colors.neutral.600");
-  --color-border-primary-hover: theme("colors.neutral.900");
+  /* Elevation */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 .dark {
-  /* Text Colors */
-  --color-text-primary: theme("colors.neutral.100");
-  --color-text-primary-hover: theme("colors.neutral.900");
-  --color-text-secondary: theme("colors.neutral.400");
+  --color-text-primary: #f9fafb;
+  /* Gray 50 */
+  --color-text-secondary: #d1d5db;
+  /* Gray 300 */
+  --color-text-muted: #6b7280;
+  /* Gray 500 */
 
-  /* Background Colors */
-  --color-background-primary: theme("colors.neutral.900");
-  --color-background-primary-hover: theme("colors.neutral.200");
-  --color-background-secondary: theme("colors.neutral.700");
-  --color-background-tertiary: theme("colors.neutral.100");
+  --color-background-primary: #030712;
+  /* Gray 950 - deeper black */
+  --color-background-secondary: #111827;
+  /* Gray 900 */
+  --color-background-tertiary: #1f2937;
+  /* Gray 800 */
 
-  /* Button Colors */
-  --color-button-primary: theme("colors.neutral.100");
-  --color-button-primary-hover: theme("colors.neutral.200");
-  --color-button-text: theme("colors.neutral.900");
-  --color-button-secondary: theme("colors.neutral.800");
-  --color-button-secondary-hover: theme("colors.neutral.700");
+  --color-border-primary: #1f2937;
+  /* Gray 800 */
+  --color-accent-soft: rgba(20, 235, 163, 0.05);
 
-  --color-border-primary: theme("colors.neutral.400");
-
-  --color-border-primary: theme("colors.neutral.300");
-  --color-border-primary-hover: theme("colors.neutral.100");
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-button-primary text-button-text px-2 py-2 rounded-lg 
-           transition-colors duration-200 
-           hover:bg-button-primary-hover;
+    @apply bg-text-primary text-background-primary px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-sm hover:shadow-md;
   }
 
   .btn-secondary {
-    @apply bg-button-secondary text-text-primary px-2 py-2 rounded-lg 
-           transition-colors duration-200 
-           hover:bg-button-secondary-hover;
-  }
-
-  .btn-outline {
-    @apply border-2 border-button-primary text-text-primary px-2 py-2 rounded-lg 
-           transition-colors duration-200 
-           hover:bg-button-secondary;
+    @apply bg-background-secondary text-text-primary px-5 py-2.5 rounded-full font-bold text-sm border border-border-primary transition-all duration-300 hover:bg-background-tertiary hover:scale-[1.02] active:scale-95;
   }
 }
 
@@ -80,8 +97,10 @@ h1 {
 .dark .react-activity-calendar__labels text,
 .dark .react-activity-calendar__legend text,
 .dark .react-activity-calendar__count {
-  fill: #fff !important; /* For SVG text elements */
-  color: #fff !important; /* For normal text */
+  fill: #fff !important;
+  /* For SVG text elements */
+  color: #fff !important;
+  /* For normal text */
 }
 
 .dark .react-activity-calendar__legend span,
@@ -103,6 +122,8 @@ h1 {
 .dark .react-activity-calendar__legend,
 .dark .react-activity-calendar__count,
 .dark .react-activity-calendar__labels {
-  fill: #fff !important; /* For SVG text */
-  color: #fff !important; /* For HTML text */
+  fill: #fff !important;
+  /* For SVG text */
+  color: #fff !important;
+  /* For HTML text */
 }

@@ -1,45 +1,31 @@
 import { motion } from "motion/react";
-
 import ProjectCard from "./ProjectCard";
-
 import { projects } from "../constants/projects";
 
 const Projects = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
   return (
     <motion.section
-      className="mb-14 mt-14 pt-8 px-4 sm:px-8 md:px-16"
-      initial="hidden"
-      whileInView="visible"
+      className="w-full"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      variants={containerVariants}
+      transition={{ duration: 0.5 }}
+      id="projects"
     >
-      <motion.h2
-        className="font-semibold italic text-xl sm:text-2xl md:text-3xl text-text-primary mb-6 text-center sm:text-left"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        Projects
-      </motion.h2>
+      <div className="mb-8 sm:mb-12">
+        <h2 className="text-3xl font-bold tracking-tight text-text-primary sm:text-4xl">
+          Featured Projects
+        </h2>
+        <p className="mt-4 text-lg text-text-secondary max-w-2xl">
+          A selection of projects I've worked on, ranging from web applications to AI experiments.
+        </p>
+      </div>
 
-      <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 gap-6"
-        variants={containerVariants}
-      >
-        {projects.reverse().map((project) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {[...projects].reverse().map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
-      </motion.div>
+      </div>
     </motion.section>
   );
 };
