@@ -56,9 +56,25 @@ const Header = () => {
         initial="hidden"
         animate="visible"
         variants={rightContentVariants}
-        className="p-2 rounded-2xl bg-background-secondary border border-border-primary shadow-sm"
+        className="flex items-center gap-3"
       >
-        <ThemeToggle />
+        {/* <a
+          href="https://blog.codextarun.xyz"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-background-secondary border border-border-primary text-text-primary font-bold hover:border-accent hover:bg-accent-soft transition-all duration-300 shadow-sm"
+        >
+          <img
+            src="https://logos-world.net/wp-content/uploads/2021/08/Blogger-Logo-2010-2013.png"
+            alt="Blogger Logo"
+            className="h-5 w-auto object-contain"
+          />
+          <span className="text-sm">Blog</span>
+        </a> */}
+
+        <div className="p-1 rounded-xl bg-background-secondary border border-border-primary shadow-sm hover:border-accent transition-all duration-300">
+          <ThemeToggle />
+        </div>
       </motion.div>
     </header>
   );

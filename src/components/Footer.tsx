@@ -1,10 +1,29 @@
-import { memo } from "react";
+import { memo, useEffect, useState } from "react";
 import { motion } from "motion/react";
 
 import { socialsInfo } from "../constants/socials";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [visitorCount, setVisitorCount] = useState<number>(897);
+
+  useEffect(() => {
+    const fetchVisitorCount = async () => {
+      try {
+        const response = await fetch(
+          "https://api.counterapi.dev/v1/tarunk_portfolio/visits/up"
+        );
+        const data = await response.json();
+        if (data && typeof data.count === 'number') {
+          setVisitorCount(data.count + 897);
+        }
+      } catch (error) {
+        console.error("Failed to fetch visitor count:", error);
+      }
+    };
+
+    fetchVisitorCount();
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -21,7 +40,7 @@ const Footer = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5 }
+      transition: { duration: 0.5 },
     },
   };
 
@@ -68,6 +87,12 @@ const Footer = () => {
           <p className="text-text-muted text-xs font-bold tracking-[0.2em] uppercase">
             © {currentYear} — Handcrafted with precision. All rights reserved.
           </p>
+          <div className="mt-2 flex items-center gap-2 px-3 py-1 rounded-full bg-background-primary border border-border-primary shadow-sm hover:border-accent transition-colors duration-300">
+            <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+            <p className="text-[10px] font-bold tracking-widest uppercase text-text-secondary">
+              Visitors: <span className="text-accent">{visitorCount}</span>
+            </p>
+          </div>
         </motion.div>
       </div>
     </motion.footer>

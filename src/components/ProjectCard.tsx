@@ -34,11 +34,13 @@ const ProjectCard = ({ project }: { project: ProjectType }) => {
 
         {/* Compact Status Badge */}
         <div className="absolute top-4 right-4">
-          <span className={`px-2.5 py-1 text-[9px] font-black tracking-[0.15em] uppercase rounded-lg border shadow-sm backdrop-blur-md ${project.projectEnd === "Ongoing"
-              ? "bg-accent/10 text-accent border-accent/20"
-              : "bg-background-secondary/80 text-text-muted border-border-primary"
+          <span className={`px-2.5 py-1 text-[9px] font-black tracking-[0.15em] uppercase rounded-lg border shadow-sm backdrop-blur-md ${project.inactive
+              ? "bg-red-500/10 text-red-400 border-red-500/20"
+              : project.projectEnd === "Ongoing"
+                ? "bg-accent/10 text-accent border-accent/20"
+                : "bg-background-secondary/80 text-text-muted border-border-primary"
             }`}>
-            {project.projectEnd === "Ongoing" ? "Live" : "Done"}
+            {project.inactive ? "Offline" : project.projectEnd === "Ongoing" ? "Live" : "Done"}
           </span>
         </div>
       </div>
@@ -86,15 +88,22 @@ const ProjectCard = ({ project }: { project: ProjectType }) => {
             <RxGithubLogo className="text-base" />
             Code
           </a>
-          <a
-            href={project.live}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-2 py-2 rounded-xl text-[11px] font-black uppercase tracking-wider bg-text-primary text-background-primary hover:opacity-90 transition-all"
-          >
-            <RxArrowTopRight className="text-base" />
-            Demo
-          </a>
+          {project.inactive ? (
+            <span className="flex-1 flex items-center justify-center gap-2 py-2 rounded-xl text-[11px] font-black uppercase tracking-wider bg-background-secondary text-text-muted border border-border-primary opacity-50 cursor-not-allowed line-through">
+              <RxArrowTopRight className="text-base" />
+              Offline
+            </span>
+          ) : (
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-2 py-2 rounded-xl text-[11px] font-black uppercase tracking-wider bg-text-primary text-background-primary hover:opacity-90 transition-all"
+            >
+              <RxArrowTopRight className="text-base" />
+              Demo
+            </a>
+          )}
         </div>
       </div>
     </motion.div>

@@ -107,6 +107,15 @@ const About = () => {
             <RxDownload className="h-6 w-6" />
           </motion.button>
 
+          <motion.div
+            variants={itemVariants}
+            className="w-full sm:w-auto"
+            whileHover={{ y: -4 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <CalendlyButton />
+          </motion.div>
+
           <div className="flex items-center gap-4">
             {socialsInfo.map((social, index) => (
               <motion.div
@@ -122,18 +131,6 @@ const About = () => {
             ))}
           </div>
         </div>
-
-        <motion.div
-          className="mt-16 sm:mt-24 w-full flex justify-center sm:justify-start"
-          variants={itemVariants}
-        >
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <CalendlyButton />
-          </motion.div>
-        </motion.div>
       </motion.section>
     </>
   );

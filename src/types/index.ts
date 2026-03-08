@@ -24,6 +24,7 @@ export interface ProjectType {
   projectStart: string;
   projectEnd: string;
   techStack: string[];
+  inactive?: boolean;
 }
 
 export interface ExperienceType {

@@ -52,7 +52,7 @@ export default function Cursor() {
         style={{
           width: cursorSize,
           height: cursorSize,
-          backgroundColor: "rgb(20, 235, 163, 0.3)",
+          backgroundColor: "rgba(20, 235, 163, 0.3)",
           border: "1px solid #14eba3",
           filter: `blur(${isActive ? 20 : 0}px)`,
           transition: `width 0.2s ease, height 0.2s ease, filter 0.2s ease`,

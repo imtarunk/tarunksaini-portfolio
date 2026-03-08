@@ -42,7 +42,7 @@ const CalendlyButton = () => {
   return (
     <button
       onClick={handleClick}
-      className="flex items-center gap-3 px-8 py-4 rounded-full bg-background-secondary border border-border-primary text-text-primary font-bold text-lg hover:border-accent hover:bg-accent-soft transition-all duration-300 shadow-sm hover:shadow-md active:scale-95"
+      className="flex items-center justify-center gap-4 px-10 py-5 rounded-full bg-background-secondary border border-border-primary text-text-primary font-bold text-xl hover:border-accent hover:bg-accent-soft transition-all duration-300 shadow-sm hover:shadow-md active:scale-95 w-full sm:w-auto"
       type="button"
     >
       <SiCalendly
