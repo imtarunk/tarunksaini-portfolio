@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { SiCalendly } from "react-icons/si";
+
+import { CALENDLY_URL } from "../constants/about";
 
 declare global {
   interface Window {
@@ -9,11 +10,12 @@ declare global {
   }
 }
 
-const CALENDLY_URL = "https://calendly.com/tarunshr145";
-
-const CalendlyButton = () => {
+const CalendlyButton = ({
+  variant = "secondary",
+}: {
+  variant?: "secondary" | "ghost";
+}) => {
   useEffect(() => {
-    // Inject Calendly widget CSS
     if (!document.getElementById("calendly-widget-css")) {
       const link = document.createElement("link");
       link.id = "calendly-widget-css";
@@ -21,7 +23,6 @@ const CalendlyButton = () => {
       link.rel = "stylesheet";
       document.head.appendChild(link);
     }
-    // Inject Calendly widget JS
     if (!document.getElementById("calendly-widget-js")) {
       const script = document.createElement("script");
       script.id = "calendly-widget-js";
@@ -42,13 +43,10 @@ const CalendlyButton = () => {
   return (
     <button
       onClick={handleClick}
-      className="flex items-center justify-center gap-4 px-10 py-5 rounded-full bg-background-secondary border border-border-primary text-text-primary font-bold text-xl hover:border-accent hover:bg-accent-soft transition-all duration-300 shadow-sm hover:shadow-md active:scale-95 w-full sm:w-auto"
+      className={variant === "ghost" ? "btn-ghost" : "btn-secondary"}
       type="button"
     >
-      <SiCalendly
-        className="h-6 w-6 text-[#0069ff]"
-      />
-      Book a Meeting
+      Book a call
     </button>
   );
 };

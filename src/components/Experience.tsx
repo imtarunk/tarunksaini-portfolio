@@ -1,29 +1,52 @@
 import { motion } from "motion/react";
-import ExperienceCard from "./ExperienceCard";
+
 import { experiences } from "../constants/experience";
+import ExperienceCard from "./ExperienceCard";
+import { fadeUp, staggerContainer } from "../lib/motion";
 
 const Experience = () => {
   return (
-    <motion.section
-      className="w-full"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
+    <section
+      id="experience"
+      className="scroll-mt-8 border-t border-border-primary bg-chalk"
     >
-      <div className="mb-10 block">
-        <h2 className="text-3xl font-bold tracking-tight text-text-primary sm:text-4xl mb-4">
-          Experience
-        </h2>
-        <div className="w-20 h-1.5 bg-accent rounded-full" />
-      </div>
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 md:px-10 md:py-28">
+        <motion.div
+          className="mb-10 max-w-2xl sm:mb-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-40px" }}
+          variants={staggerContainer}
+        >
+          <motion.p className="section-kicker" variants={fadeUp}>
+            Experience
+          </motion.p>
+          <motion.h2
+            className="mt-3 font-display text-3xl font-bold tracking-tight text-text-primary sm:mt-4 sm:text-4xl md:text-5xl"
+            variants={fadeUp}
+          >
+            Roles & ventures
+          </motion.h2>
+          <motion.p
+            className="mt-3 text-base text-text-secondary sm:mt-4 sm:text-lg"
+            variants={fadeUp}
+          >
+            Founding engineer work alongside contract engineering — AI products
+            and production systems.
+          </motion.p>
+        </motion.div>
 
-      <div className="space-y-4">
-        {experiences.map((experience) => (
-          <ExperienceCard key={experience.id} experience={experience} />
-        ))}
+        <div className="divide-y divide-border-primary border-y border-border-primary">
+          {experiences.map((experience, index) => (
+            <ExperienceCard
+              key={experience.id}
+              experience={experience}
+              index={index}
+            />
+          ))}
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

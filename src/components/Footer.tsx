@@ -1,102 +1,87 @@
-import { memo, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 
 import { socialsInfo } from "../constants/socials";
+import { BRAND_NAME, HEADLINE } from "../constants/about";
+import CalendlyButton from "./CalendlyButton";
+import { fadeUp, staggerContainer } from "../lib/motion";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const [visitorCount, setVisitorCount] = useState<number>(897);
-
-  useEffect(() => {
-    const fetchVisitorCount = async () => {
-      try {
-        const response = await fetch(
-          "https://api.counterapi.dev/v1/tarunk_portfolio/visits/up"
-        );
-        const data = await response.json();
-        if (data && typeof data.count === 'number') {
-          setVisitorCount(data.count + 897);
-        }
-      } catch (error) {
-        console.error("Failed to fetch visitor count:", error);
-      }
-    };
-
-    fetchVisitorCount();
-  }, []);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 },
-    },
-  };
 
   return (
-    <motion.footer
-      className="w-full py-16 mt-24 border-t border-border-primary bg-background-secondary/30"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={containerVariants}
-    >
-      <div className="w-full mx-auto flex flex-col items-center gap-10">
-        <motion.div
-          className="flex items-center gap-6"
-          variants={containerVariants}
-        >
-          {socialsInfo.map((social) => {
-            const Icon = social.icon;
-            return (
-              <motion.a
-                key={social.id}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-4 rounded-xl bg-background-primary border border-border-primary text-text-secondary hover:text-accent hover:border-accent transition-all duration-300 shadow-sm"
-                aria-label={social.name}
-                variants={itemVariants}
-                whileHover={{ y: -5, scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <Icon className="h-6 w-6" />
-              </motion.a>
-            );
-          })}
-        </motion.div>
+    <footer id="contact" className="scroll-mt-8 bg-ink text-white">
+      <motion.div
+        className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:gap-12 sm:px-6 sm:py-20 md:grid-cols-[1.2fr_1fr] md:items-end md:gap-16 md:px-10 md:py-28"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-40px" }}
+        variants={staggerContainer}
+      >
+        <div className="min-w-0">
+          <motion.p className="section-kicker" variants={fadeUp}>
+            Contact
+          </motion.p>
+          <motion.h2
+            className="mt-3 break-words font-display text-3xl font-bold tracking-tight sm:mt-4 sm:text-5xl md:text-6xl"
+            variants={fadeUp}
+          >
+            {BRAND_NAME}
+          </motion.h2>
+          <motion.p
+            className="mt-3 text-base text-white/65 sm:text-lg"
+            variants={fadeUp}
+          >
+            {HEADLINE}
+          </motion.p>
+          <motion.a
+            href="mailto:tarunshr145@gmail.com"
+            className="mt-6 inline-block break-all font-display text-base font-semibold text-white underline decoration-white/30 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent sm:mt-8 sm:text-lg"
+            variants={fadeUp}
+          >
+            tarunshr145@gmail.com
+          </motion.a>
+          <motion.div
+            className="mt-6 flex w-full flex-col gap-3 sm:mt-8 sm:max-w-md sm:flex-row sm:flex-wrap"
+            variants={fadeUp}
+          >
+            <div className="w-full sm:w-auto [&_button]:w-full sm:[&_button]:w-auto">
+              <CalendlyButton variant="ghost" />
+            </div>
+            <Link to="/b" className="btn-ghost w-full sm:w-auto">
+              Blog
+            </Link>
+          </motion.div>
+        </div>
 
         <motion.div
-          className="flex flex-col items-center text-center gap-4"
-          variants={itemVariants}
+          className="flex flex-col gap-6 sm:gap-8 md:items-end md:text-right"
+          variants={fadeUp}
         >
-          <p className="text-text-primary font-black text-xl tracking-tighter italic">
-            code<span className="text-accent text-red-500">x</span>tarun.xyz
-          </p>
-          <p className="text-text-muted text-xs font-bold tracking-[0.2em] uppercase">
-            © {currentYear} — Handcrafted with precision. All rights reserved.
-          </p>
-          <div className="mt-2 flex items-center gap-2 px-3 py-1 rounded-full bg-background-primary border border-border-primary shadow-sm hover:border-accent transition-colors duration-300">
-            <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-            <p className="text-[10px] font-bold tracking-widest uppercase text-text-secondary">
-              Visitors: <span className="text-accent">{visitorCount}</span>
-            </p>
+          <div className="flex items-center gap-5 md:justify-end">
+            {socialsInfo.map((social) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={social.id}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-11 w-11 items-center justify-center text-white/60 transition-colors hover:text-accent"
+                  aria-label={social.name}
+                >
+                  <Icon className="h-5 w-5" />
+                </a>
+              );
+            })}
           </div>
+          <p className="text-xs tracking-wide text-white/40">
+            © {currentYear} {BRAND_NAME}
+          </p>
         </motion.div>
-      </div>
-    </motion.footer>
+      </motion.div>
+    </footer>
   );
 };
 
-export default memo(Footer);
+export default Footer;

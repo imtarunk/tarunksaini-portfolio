@@ -1,20 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-text-primary: #f0f2f1;
+  --color-text-secondary: #b7c0c6;
+  --color-text-muted: #7a8690;
+  --color-background-primary: #0c1116;
+  --color-background-secondary: #151b21;
+  --color-background-tertiary: #1e262e;
+  --color-border-primary: #2c3640;
+  --color-accent: #fb7185;
+  --color-accent-soft: rgba(251, 113, 133, 0.14);
+  --color-ink: #06090c;
+  --color-chalk: #12171c;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.35);
+  --shadow-md: 0 8px 24px rgb(0 0 0 / 0.4);
+  --shadow-lg: 0 20px 48px rgb(0 0 0 / 0.5);
+}
+
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color-scheme: dark;
+  overflow-x: hidden;
 }
 
 body {
-  @apply bg-background-primary text-text-primary transition-colors duration-300;
+  @apply bg-background-primary text-text-primary font-sans overflow-x-hidden;
 }
 
 ::selection {
   @apply bg-accent-soft text-text-primary;
 }
 
-/* Scrollbar Theming */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -22,108 +44,41 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-border-primary rounded-full hover:bg-text-muted;
-}
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  /* Refined Professional Palette */
-  --color-text-primary: #111827;
-  /* Gray 900 */
-  --color-text-secondary: #4b5563;
-  /* Gray 600 */
-  --color-text-muted: #9ca3af;
-  /* Gray 400 */
-
-  --color-background-primary: #ffffff;
-  --color-background-secondary: #f9fafb;
-  /* Gray 50 */
-  --color-background-tertiary: #f3f4f6;
-  /* Gray 100 */
-
-  --color-border-primary: #e5e7eb;
-  /* Gray 200 */
-  --color-accent: #14eba3;
-  --color-accent-soft: rgba(20, 235, 163, 0.1);
-
-  /* Elevation */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-}
-
-.dark {
-  --color-text-primary: #f9fafb;
-  /* Gray 50 */
-  --color-text-secondary: #d1d5db;
-  /* Gray 300 */
-  --color-text-muted: #6b7280;
-  /* Gray 500 */
-
-  --color-background-primary: #030712;
-  /* Gray 950 - deeper black */
-  --color-background-secondary: #111827;
-  /* Gray 900 */
-  --color-background-tertiary: #1f2937;
-  /* Gray 800 */
-
-  --color-border-primary: #1f2937;
-  /* Gray 800 */
-  --color-accent-soft: rgba(20, 235, 163, 0.05);
-
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
+  @apply bg-border-primary;
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-text-primary text-background-primary px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-sm hover:shadow-md;
+    @apply inline-flex items-center justify-center gap-2 bg-accent px-5 py-3.5 font-display text-sm font-semibold tracking-wide text-[#101820] transition-all duration-300 hover:brightness-110 sm:px-6;
   }
 
   .btn-secondary {
-    @apply bg-background-secondary text-text-primary px-5 py-2.5 rounded-full font-bold text-sm border border-border-primary transition-all duration-300 hover:bg-background-tertiary hover:scale-[1.02] active:scale-95;
+    @apply inline-flex items-center justify-center gap-2 border border-border-primary bg-transparent px-5 py-3.5 font-display text-sm font-semibold tracking-wide transition-all duration-300 hover:border-accent hover:text-accent sm:px-6;
   }
-}
 
-h1 {
-  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
-}
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 border bg-transparent px-5 py-3.5 font-display text-sm font-semibold tracking-wide text-white transition-all duration-300 sm:px-6;
+    border-color: rgb(255 255 255 / 0.4);
+  }
 
-/* GitHub Calendar custom dark mode text color */
-.dark .react-activity-calendar__labels text,
-.dark .react-activity-calendar__legend text,
-.dark .react-activity-calendar__count {
-  fill: #fff !important;
-  /* For SVG text elements */
-  color: #fff !important;
-  /* For normal text */
-}
+  .btn-ghost:hover {
+    border-color: rgb(255 255 255 / 1);
+    background-color: rgb(255 255 255 / 1);
+    color: #06090c;
+  }
 
-.dark .react-activity-calendar__legend span,
-.dark .react-activity-calendar__count,
-.dark .react-activity-calendar__month-labels,
-.dark .react-activity-calendar__week-labels {
-  color: #fff !important;
-}
+  .section-kicker {
+    @apply font-display text-[10px] font-semibold uppercase tracking-[0.24em] text-accent sm:text-[11px] sm:tracking-[0.28em];
+  }
 
-.dark .react-activity-calendar__custom text,
-.dark .react-activity-calendar__custom span,
-.dark .react-activity-calendar__custom .react-activity-calendar__count {
-  color: #fff !important;
-  fill: #fff !important;
-}
+  .safe-bottom {
+    padding-bottom: max(2.5rem, env(safe-area-inset-bottom));
+  }
 
-/* Make month names, legend, and count text white in dark mode */
-.dark .react-activity-calendar text,
-.dark .react-activity-calendar__legend,
-.dark .react-activity-calendar__count,
-.dark .react-activity-calendar__labels {
-  fill: #fff !important;
-  /* For SVG text */
-  color: #fff !important;
-  /* For HTML text */
+  .noise-surface {
+    background-color: var(--color-background-primary);
+    background-image:
+      radial-gradient(ellipse 80% 60% at 10% 0%, rgba(251, 113, 133, 0.08), transparent 55%),
+      radial-gradient(ellipse 70% 50% at 100% 20%, rgba(255, 255, 255, 0.03), transparent 50%);
+  }
 }

@@ -1,6 +1,30 @@
 export const experiences = [
   {
     id: 0,
+    company: "Matic Studio",
+    designation: "Founder",
+    icon: "/matic-studio-icon.svg",
+    startDate: "May 2026",
+    endDate: "Present",
+    companyUrl: "https://maticstudio.site/",
+    location: "Remote",
+    description:
+      "Founder of Matic Studio — an AI-native animation platform that turns briefs, documents, and scripts into production-quality explainer videos, product demos, and educational content.",
+  },
+  {
+    id: 1,
+    company: "Kielo",
+    designation: "Founder",
+    icon: "/kielo-icon.svg",
+    startDate: "Jul 2026",
+    endDate: "Present",
+    companyUrl: "https://kielo.in/",
+    location: "Remote",
+    description:
+      "Building Kielo — a decentralized AI inference network where idle GPU/CPU providers earn from compute, and developers access open-source LLMs through one OpenAI-compatible API.",
+  },
+  {
+    id: 2,
     company: "DentalScan",
     designation: "CTO & Lead Engineer",
     icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfHv9dM3gv9oCkYpPVsfWrdgFQuvgxgYJt9A&s",
@@ -11,7 +35,7 @@ export const experiences = [
     description: "Leading technical strategy and engineering as CTO at DentalScan — building AI-powered dental diagnostics products.",
   },
   {
-    id: 1,
+    id: 3,
     company: "Knowlify (YC S25)",
     designation: "Software Engineer",
     icon: "https://imgs.search.brave.com/KrI3YpCTUYEUwwBUZACUaYYNJCwYLn46tVRkBiJj8aM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9taW50/Y2RuLmNvbS9rbm93/bGlmeS03NzlhY2I3/Yy9Eemx1MjRlcExS/cEp4MVd3L2xvZ28v/YmxhY2tfa25vd2xp/ZnkucG5nP2ZpdD1t/YXgmYXV0bz1mb3Jt/YXQmbj1Eemx1MjRl/cExScEp4MVd3JnE9/ODUmcz00YmQzYmI0/N2FiODJhOGQxNDk4/MDZiZTVlZDAxYTdk/Ng",
@@ -19,21 +43,23 @@ export const experiences = [
     endDate: "Jan 2026",
     companyUrl: "https://www.knowlify.com/",
     location: "San Francisco Bay Area · Remote",
-    description: "Software Engineer at KnowlifyAI | Building AI-driven products.",
+    description:
+      "Built AI-driven product features at Knowlify (YC S25) — full stack engineering on intelligent learning tools.",
   },
   {
-    id: 2,
+    id: 4,
     company: "Hubvestor By Asante",
     designation: "CTO & Co-founder",
-    icon: "./hg-green.JPG",
+    icon: "/hg-green.JPG",
     startDate: "Aug 2025",
     endDate: "Dec 2025",
     companyUrl: "https://hubvestor.com/",
     location: "Zurich, Switzerland · Remote",
-    description: "Leading technical strategy and product development for Hubvestor.",
+    description:
+      "Co-founded and led product engineering for Hubvestor — architecture, delivery, and technical direction.",
   },
   {
-    id: 3,
+    id: 5,
     company: "Adgent",
     designation: "Software Engineer",
     icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiV36CvH_T3UijPr0LQqJ2x_suHjEBVPzaaw&s",
@@ -41,10 +67,11 @@ export const experiences = [
     endDate: "Oct 2025",
     companyUrl: "https://adgent.ai/",
     location: "United Kingdom · Remote",
-    description: "Software Engineer Intern at Adgent.",
+    description:
+      "Built full stack features for Adgent's generative advertising platform.",
   },
   {
-    id: 4,
+    id: 6,
     company: "Cypherpunk",
     designation: "Blockchain Developer",
     icon: "/exp1.png",
@@ -52,6 +79,7 @@ export const experiences = [
     endDate: "Jul 2025",
     companyUrl: "",
     location: "United Kingdom · Remote",
-    description: "Blockchain Developer Intern.",
+    description:
+      "Developed blockchain integrations and on-chain tooling as a blockchain developer.",
   },
 ];

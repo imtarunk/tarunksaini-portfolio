@@ -1,117 +1,84 @@
 import { motion } from "motion/react";
-import {
-  SiJavascript,
-  SiTypescript,
-  SiNextdotjs,
-  SiReact,
-  SiPrisma,
-  SiMongodb,
-  SiPostgresql,
-  SiSupabase,
-  SiMysql,
-  SiTurborepo,
-  SiDocker,
-  SiTailwindcss,
-  SiNodedotjs,
-  SiExpress,
-  SiGit,
-  SiSolana,
-  SiRust,
-  SiEthereum,
-  SiWeb3Dotjs,
-  SiPython,
-  SiPytorch,
-  SiTensorflow,
-  SiHuggingface,
-} from "react-icons/si";
 
-const skills = [
-  { icon: SiJavascript, name: "JavaScript", color: "#F7DF1E" },
-  { icon: SiTypescript, name: "TypeScript", color: "#3178C6" },
-  { icon: SiNextdotjs, name: "Next.js", color: "#000000", dynamicColor: true },
-  { icon: SiReact, name: "React", color: "#61DAFB" },
-  { icon: SiTailwindcss, name: "Tailwind CSS", color: "#06B6D4" },
-  { icon: SiNodedotjs, name: "Node.js", color: "#339933" },
-  { icon: SiExpress, name: "Express.js", color: "#000000", dynamicColor: true },
-  { icon: SiPython, name: "Python", color: "#3776AB" },
-  { icon: SiPytorch, name: "PyTorch", color: "#EE4C2C" },
-  { icon: SiTensorflow, name: "TensorFlow", color: "#FF6F00" },
-  { icon: SiHuggingface, name: "Hugging Face", color: "#FFD21E" },
-  { icon: SiPrisma, name: "Prisma", color: "#0C344B" },
-  { icon: SiMongodb, name: "MongoDB", color: "#47A248" },
-  { icon: SiPostgresql, name: "PostgreSQL", color: "#336791" },
-  { icon: SiSupabase, name: "Supabase", color: "#3ECF8E" },
-  { icon: SiMysql, name: "MySQL", color: "#00758F" },
-  {
-    icon: SiTurborepo,
-    name: "Turborepo",
-    color: "#000000",
-    dynamicColor: true,
-  },
-  { icon: SiDocker, name: "Docker", color: "#2496ED" },
-  { icon: SiGit, name: "Git", color: "#F05032" },
-  { icon: SiSolana, name: "Solana", color: "#00FFA3" },
-  { icon: SiRust, name: "Rust", color: "#DEA584" },
-  { icon: SiEthereum, name: "Ethereum", color: "#3C3C3D" },
-  { icon: SiWeb3Dotjs, name: "Web3", color: "#F16822" },
-];
+import { skillGroups } from "../constants/skills";
+import { fadeUp, scaleIn, staggerContainer, staggerFast } from "../lib/motion";
 
 const Skills = () => {
   return (
-    <motion.section
-      className="w-full"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-    >
-      <div className="mb-10 block">
-        <h2 className="text-3xl font-bold tracking-tight text-text-primary sm:text-4xl mb-4">
-          Tech Stack
-        </h2>
-        <div className="w-20 h-1.5 bg-accent rounded-full opacity-30" />
-      </div>
+    <section id="skills" className="scroll-mt-8 border-t border-border-primary">
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 md:px-10 md:py-28">
+        <motion.div
+          className="mb-10 max-w-2xl sm:mb-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-40px" }}
+          variants={staggerContainer}
+        >
+          <motion.p className="section-kicker" variants={fadeUp}>
+            Capabilities
+          </motion.p>
+          <motion.h2
+            className="mt-3 font-display text-3xl font-bold tracking-tight text-text-primary sm:mt-4 sm:text-4xl md:text-5xl"
+            variants={fadeUp}
+          >
+            Tools & systems
+          </motion.h2>
+          <motion.p
+            className="mt-3 text-base text-text-secondary sm:mt-4 sm:text-lg"
+            variants={fadeUp}
+          >
+            What I use to ship production AI and full stack products.
+          </motion.p>
+        </motion.div>
 
-      <motion.div
-        className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-10"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={{
-          hidden: {},
-          visible: {
-            transition: {
-              staggerChildren: 0.03,
-            },
-          },
-        }}
-      >
-        {skills.map((skill) => {
-          const Icon = skill.icon;
-          return (
+        <div className="space-y-10 sm:space-y-12">
+          {skillGroups.map((group, groupIndex) => (
             <motion.div
-              key={skill.name}
-              className="group flex flex-col items-center gap-3 cursor-pointer"
-              variants={{
-                hidden: { opacity: 0, scale: 0.8 },
-                visible: { opacity: 1, scale: 1 },
-              }}
-              whileHover={{ y: -5 }}
+              key={group.title}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-40px" }}
+              variants={staggerContainer}
             >
-              <div className="relative p-4 rounded-2xl bg-background-secondary border border-border-primary group-hover:border-accent group-hover:bg-accent-soft transition-all duration-300">
-                <Icon
-                  className="h-7 w-7 sm:h-8 sm:w-8 transition-transform duration-300 group-hover:scale-110"
-                  style={!skill.dynamicColor ? { color: skill.color } : undefined}
-                />
-              </div>
-              <span className="text-[10px] sm:text-xs font-bold text-text-muted group-hover:text-text-primary transition-colors uppercase tracking-wider text-center">
-                {skill.name}
-              </span>
+              <motion.h3
+                className="font-display text-xs font-bold uppercase tracking-[0.18em] text-accent sm:text-sm"
+                variants={fadeUp}
+              >
+                {group.title}
+              </motion.h3>
+
+              <motion.ul
+                className="mt-4 grid grid-cols-1 gap-2.5 min-[400px]:grid-cols-2 sm:mt-5 sm:gap-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+                variants={staggerFast}
+              >
+                {group.items.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <motion.li
+                      key={item.name}
+                      variants={scaleIn}
+                      whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                      className="flex min-w-0 items-center gap-2.5 border border-border-primary bg-background-secondary/60 px-3 py-2.5 transition-colors hover:border-accent/50 sm:gap-3 sm:px-3.5 sm:py-3"
+                      style={{ transitionDelay: `${groupIndex * 20}ms` }}
+                    >
+                      <span
+                        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-background-tertiary sm:h-9 sm:w-9"
+                        style={{ color: item.color }}
+                      >
+                        <Icon className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden />
+                      </span>
+                      <span className="truncate font-display text-xs font-semibold text-text-primary sm:text-sm">
+                        {item.name}
+                      </span>
+                    </motion.li>
+                  );
+                })}
+              </motion.ul>
             </motion.div>
-          );
-        })}
-      </motion.div>
-    </motion.section>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 

@@ -1,29 +1,40 @@
 import { motion } from "motion/react";
-import EducationCard from "./EducationCard";
+
 import { educationList } from "../constants/education";
+import EducationCard from "./EducationCard";
+import { fadeUp, staggerContainer } from "../lib/motion";
 
 const Education = () => {
   return (
-    <motion.section
-      className="w-full"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
+    <section
+      id="education"
+      className="scroll-mt-8 border-t border-border-primary bg-chalk"
     >
-      <div className="mb-10 block">
-        <h2 className="text-3xl font-bold tracking-tight text-text-primary sm:text-4xl mb-4">
-          Education & Learning
-        </h2>
-        <div className="w-20 h-1.5 bg-accent rounded-full opacity-50" />
-      </div>
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 md:px-10 md:py-24">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-40px" }}
+          variants={staggerContainer}
+        >
+          <motion.p className="section-kicker" variants={fadeUp}>
+            Education
+          </motion.p>
+          <motion.h2
+            className="mt-3 font-display text-3xl font-bold tracking-tight text-text-primary sm:mt-4 sm:text-4xl md:text-5xl"
+            variants={fadeUp}
+          >
+            Learning path
+          </motion.h2>
+        </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {educationList.map((edu) => (
-          <EducationCard key={edu.id} education={edu} />
-        ))}
+        <div className="mt-8 divide-y divide-border-primary border-y border-border-primary sm:mt-12">
+          {educationList.map((item, index) => (
+            <EducationCard key={item.id} education={item} index={index} />
+          ))}
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

@@ -1,26 +1,81 @@
-export const projects = [
+import { ProjectType } from "../types";
+
+export const projects: ProjectType[] = [
   {
-    id: 0,
-    title: "Matic AI",
-    projectStart: "Jan 2025",
+    id: 7,
+    title: "Kielo",
+    projectStart: "Jul 2026",
     projectEnd: "Ongoing",
     description:
-      "Matic AI is an intelligent visual learning platform that transforms educational questions into clear, step-by-step visual answers. It helps users understand complex concepts one step at a time, making learning more intuitive and accessible for all audiences.",
+      "Decentralized AI inference network — earn from idle GPU/CPU or call 100+ open-source LLMs through one OpenAI-compatible API at a fraction of closed-provider cost.",
     techStack: [
       "Next.js",
       "TypeScript",
-      "AWS Lambda",
       "Node.js",
+      "Distributed Systems",
+      "LLM Inference",
+      "Desktop App",
+    ],
+    live: "https://kielo.in/",
+    github: "https://kielo.in/",
+    image: ["/kielo-thumbnail.png", "/kielo-thumbnail.png"],
+  },
+  {
+    id: 6,
+    title: "Matic Studio",
+    projectStart: "May 2026",
+    projectEnd: "Ongoing",
+    description:
+      "AI-native animation studio that turns briefs, documents, and scripts into production-quality explainers, product demos, and educational video — finished animation, not another timeline.",
+    techStack: [
+      "Next.js",
+      "TypeScript",
       "Python",
       "OpenAI",
       "LangChain",
+      "AWS",
+    ],
+    live: "https://maticstudio.site/",
+    github: "https://github.com/imtarunk/matic_v2_marketing",
+    image: ["/matic-ai-thumbnail.png", "/matic-ai-thumbnail.png"],
+  },
+  {
+    id: 5,
+    title: "Spenn",
+    projectStart: "Feb 2025",
+    projectEnd: "Ongoing",
+    description:
+      "AI expense tracking that lives in Telegram. Text 'food 200' — Spenn logs, categorizes, and visualizes spending in real time. No apps, no friction.",
+    techStack: [
+      "Node.js",
+      "TypeScript",
+      "Telegram Bot API",
+      "PostgreSQL",
+      "OpenAI",
+      "Next.js",
+    ],
+    live: "https://spenn.vercel.app/",
+    github: "https://github.com/imtarunk/spenn",
+    image: ["/spenn-thumbnail.png", "/spenn-thumbnail.png"],
+  },
+  {
+    id: 3,
+    title: "Rume",
+    projectStart: "June 2025",
+    projectEnd: "Done",
+    description:
+      "AI resume-to-portfolio pipeline. Upload a PDF or DOCX and get a polished, personalized portfolio site in seconds — parsing, layout, and copy handled end-to-end.",
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "Gemini API",
       "TailwindCSS",
       "Vercel",
-      "AI/ML",
     ],
-    live: "https://matic-rho.vercel.app/",
-    github: "https://github.com/imtarunk/main-maticai",
-    image: ["/matic-ai-thumbnail.png", "/matic-ai-thumbnail.png"],
+    live: "https://rume-app-v1.vercel.app/",
+    github: "https://github.com/imtarunk/rume-app",
+    image: ["/rume-thumbnail.png", "/rume-thumbnail.png"],
   },
   {
     id: 1,
@@ -28,7 +83,7 @@ export const projects = [
     projectStart: "Apr 2025",
     projectEnd: "Ongoing",
     description:
-      "Clay is a decentralized Web3 social media platform built on the Bitcoin Network using Ordinals and BRC-20 protocols. It empowers users to create, share, and monetize content without intermediaries. Focused on privacy, true ownership, and censorship resistance for creators and users.",
+      "Decentralized social platform on Bitcoin Ordinals and BRC-20 — create, share, and monetize content with true ownership and censorship resistance.",
     techStack: [
       "Bitcoin",
       "Ordinals",
@@ -37,9 +92,9 @@ export const projects = [
       "TypeScript",
       "TailwindCSS",
     ],
-    live: "https://app.clay.codextarun.xyz/", // Replace with your live link
-    github: "https://github.com/imtarunk/CLAY", // Replace with your repo
-    image: ["/project-1-light.png", "/project-1-dark.png"], // Light/Dark preview images
+    live: "https://app.clay.codextarun.xyz/",
+    github: "https://github.com/imtarunk/CLAY",
+    image: ["/project-1-light.png", "/project-1-dark.png"],
   },
   {
     id: 2,
@@ -47,7 +102,7 @@ export const projects = [
     projectStart: "Mar 2025",
     projectEnd: "Ongoing",
     description:
-      "Cryptoview is a powerful toolkit built on Solana that simplifies the creation, deployment, and management of SPL tokens using the SPL-Token-2022 standard. Features include token launcher, wallet analysis, airdrop manager, and real-time on-chain insights tailored for developers and projects.",
+      "Solana toolkit for launching and managing SPL Token-2022 assets — token launcher, wallet analysis, airdrops, and live on-chain insights.",
     techStack: [
       "Solana",
       "Rust",
@@ -55,40 +110,18 @@ export const projects = [
       "React",
       "TypeScript",
       "Supabase",
-      "TailwindCSS",
     ],
-    live: "https://crypto-view-five.vercel.app/", // Replace with your live link
-    github: "https://github.com/imtarunk/crypto_view", // Replace with your repo
-    image: ["/project-2-light.png", "/project-2-dark.png"], // Images
+    live: "https://crypto-view-five.vercel.app/",
+    github: "https://github.com/imtarunk/crypto_view",
+    image: ["/project-2-light.png", "/project-2-dark.png"],
   },
-  // {
-  //   id: 3,
-  //   title: "Rume",
-  //   projectStart: "Jan 2025",
-  //   projectEnd: "Ongoing",
-  //   description:
-  //     "Gitbrain is an AI-powered developer assistant that helps with code search, bug fixes, and team collaboration. It integrates vector search, AI chat over repositories, and a collaborative developer workspace.",
-  //   techStack: [
-  //     "Next.js",
-  //     "TypeScript",
-  //     "PostgreSQL",
-  //     "Prisma",
-  //     "Supabase",
-  //     "LangChain",
-  //     "OpenAI",
-  //     "TailwindCSS",
-  //   ],
-  //   live: "https://gitbrain.dev",
-  //   github: "https://github.com/imtarunk/GitBrain-ai",
-  //   image: ["/gitbrain-light.png", "/gitbrain-light.png"],
-  // },
   {
     id: 4,
     title: "AppX",
     projectStart: "Feb 2025",
     projectEnd: "Ongoing",
     description:
-      "AppX is a SaaS builder that allows anyone to create web apps without coding. Features drag-and-drop UI, authentication, database integration, and deployment in one click. Focused on developers, startups, and solopreneurs.",
+      "SaaS builder for shipping web apps without code — drag-and-drop UI, auth, database, and one-click deploy for startups and solopreneurs.",
     techStack: [
       "Next.js",
       "TypeScript",
@@ -96,55 +129,10 @@ export const projects = [
       "PostgreSQL",
       "Prisma",
       "AWS",
-      "Vercel",
-      "TailwindCSS",
     ],
     live: "https://appx.so",
     github: "https://github.com/imtarunk/Appx-ai",
     image: ["/appx-light.png", "/appx-light.png"],
     inactive: true,
-  },
-  {
-    id: 3,
-    title: "Rume",
-    projectStart: "June 2025",
-    projectEnd: "Done",
-    description:
-      "Resume To Impact. Rume parses your experience using AI to build a world-class portfolio in seconds. Upload your resume (PDF or DOCX) and get a stunning, personalized portfolio site instantly — no manual effort, no friction.",
-    techStack: [
-      "Next.js",
-      "TypeScript",
-      "Prisma",
-      "TailwindCSS",
-      "Gemini API",
-      "Vercel",
-      "Shadcn/UI",
-      "AI/ML",
-    ],
-    live: "https://rume-app-v1.vercel.app/",
-    github: "https://github.com/imtarunk/rume-app",
-    image: ["/rume-thumbnail.png", "/rume-thumbnail.png"],
-  },
-  {
-    id: 5,
-    title: "Spenn",
-    projectStart: "Feb 2025",
-    projectEnd: "Ongoing",
-    description:
-      "Track Every Rupee. Just Text the Bot. Send 'food 200' on Telegram — Spenn logs, categorizes, and visualizes your spending in real-time. No apps. No friction. AI-powered expense tracking that lives entirely in your chat.",
-    techStack: [
-      "Node.js",
-      "TypeScript",
-      "Telegram Bot API",
-      "PostgreSQL",
-      "Prisma",
-      "Next.js",
-      "OpenAI",
-      "Vercel",
-      "Chart.js",
-    ],
-    live: "https://spenn.vercel.app/",
-    github: "https://github.com/imtarunk/spenn",
-    image: ["/spenn-thumbnail.png", "/spenn-thumbnail.png"],
   },
 ];

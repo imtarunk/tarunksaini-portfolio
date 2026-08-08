@@ -1,39 +1,89 @@
 import { motion } from "motion/react";
-import { ExperienceType } from "../types";
 
-const ExperienceCard = ({ experience }: { experience: ExperienceType }) => {
-  return (
-    <motion.div
-      className="group relative flex flex-col sm:flex-row justify-between items-start sm:items-center p-6 rounded-2xl border border-transparent hover:border-border-primary hover:bg-background-secondary transition-all duration-300"
-      whileHover={{ x: 8 }}
-    >
-      <div className="flex gap-6 items-center">
-        <div className="p-3 rounded-xl bg-background-tertiary group-hover:bg-background-primary transition-colors">
+import { ExperienceType } from "../types";
+import { easeClassic } from "../lib/motion";
+
+const ExperienceCard = ({
+  experience,
+  index,
+}: {
+  experience: ExperienceType;
+  index: number;
+}) => {
+  const inner = (
+    <div className="grid gap-3 py-6 sm:gap-4 sm:py-8 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)_auto] md:items-start md:gap-8">
+      <div className="flex items-start gap-3">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden bg-background-secondary sm:h-11 sm:w-11 md:hidden">
           <img
             src={experience.icon}
-            alt={experience.company}
-            className="h-10 w-10 min-w-[40px] rounded-lg object-contain"
+            alt=""
+            className="h-6 w-6 object-contain sm:h-7 sm:w-7"
           />
         </div>
-        <div>
-          <h3 className="text-xl font-bold text-text-primary group-hover:text-accent transition-colors">
-            {experience.designation}
-          </h3>
-          <div className="flex items-center gap-2 mt-1">
-            <p className="text-md font-medium text-text-secondary">{experience.company}</p>
+        <div className="min-w-0">
+          <p className="font-display text-base font-bold text-text-primary sm:text-lg">
+            {experience.company}
+          </p>
+          <p className="mt-1 text-xs text-text-muted sm:text-sm">
+            {experience.endDate === "Present" ? (
+              <span className="text-accent">Current</span>
+            ) : (
+              `${experience.startDate} – ${experience.endDate}`
+            )}
             {experience.endDate === "Present" && (
-              <span className="px-2 py-0.5 text-[10px] font-bold tracking-widest uppercase bg-accent/20 text-accent rounded-md">
-                CURRENT
+              <span className="text-text-muted">
+                {" "}
+                · {experience.startDate} – Present
               </span>
             )}
-          </div>
+          </p>
         </div>
       </div>
-      <div className="mt-4 sm:mt-0 text-left sm:text-right">
-        <p className="text-sm font-bold text-text-muted uppercase tracking-widest">
-          {experience.startDate} — {experience.endDate}
-        </p>
+
+      <div className="min-w-0 pl-[3.25rem] md:pl-0">
+        <h3 className="font-display text-lg font-semibold tracking-tight text-text-primary sm:text-xl">
+          {experience.designation}
+        </h3>
+        {experience.description && (
+          <p className="mt-2 max-w-xl text-sm leading-relaxed text-text-secondary">
+            {experience.description}
+          </p>
+        )}
       </div>
+
+      <div className="hidden h-12 w-12 shrink-0 items-center justify-center overflow-hidden bg-background-secondary md:flex">
+        <img
+          src={experience.icon}
+          alt=""
+          className="h-8 w-8 object-contain"
+        />
+      </div>
+    </div>
+  );
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-30px" }}
+      transition={{
+        duration: 0.6,
+        delay: Math.min(index * 0.05, 0.25),
+        ease: easeClassic,
+      }}
+    >
+      {experience.companyUrl ? (
+        <a
+          href={experience.companyUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block transition-colors hover:[&_h3]:text-accent hover:[&_.font-bold]:text-accent"
+        >
+          {inner}
+        </a>
+      ) : (
+        inner
+      )}
     </motion.div>
   );
 };

@@ -7,7 +7,7 @@ export const educationList = [
     startDate: "2023",
     endDate: "Current",
     description:
-      "Pursuing Bachelor's in Computer Science focused on Full Stack Development, Blockchain, DePIN, and Web3.",
+      "Pursuing Bachelor's in Computer Science with focus on full stack systems, AI applications, and product engineering.",
   },
   {
     id: 2,

@@ -1,0 +1,78 @@
+{
+  "source": "https://www.linkedin.com/in/itarunsaini",
+  "updatedAt": "2026-08-08",
+  "posts": [
+    {
+      "id": "kielo-opencode",
+      "title": "Connecting OpenCode to Kielo in minutes",
+      "date": "2026-07-19",
+      "excerpt": "Kielo’s OpenAI-compatible API makes it trivial to plug open-source models into tools you already use.",
+      "linkedinUrl": "https://www.linkedin.com/posts/itarunsaini_kielo-opencode-openai-activity-7484458908992991232-MO3Z",
+      "tags": ["Kielo", "OpenSource", "DeveloperTools"],
+      "body": "Today I connected OpenCode to Kielo in just a few minutes by pointing it to https://api.kielo.in/v1.\n\nSince Kielo's API is OpenAI SDK compatible, the integration was straightforward — configure the provider in OpenCode's JSON, add your API key, and you're ready to go.\n\nI tested it with DeepSeek-Coder-V2-Lite-Instruct, and the experience was impressive. The model felt fast, responsive, and handled coding tasks better than I expected.\n\nOne of my goals with Kielo is to make it easy for developers to use open-source AI models with the tools they already love. If a tool supports the OpenAI SDK, it should work with Kielo with little to no code changes.\n\nThe developer experience I want:\n• Point your app to https://api.kielo.in/v1\n• Use your Kielo API key\n• Choose any supported open-source model\n• Start building\n\nI'm excited to test more coding models like Qwen3-Coder and Codestral through the same endpoint."
+    },
+    {
+      "id": "kielo-windows-app",
+      "title": "Day 7 — Kielo Windows desktop app is live",
+      "date": "2026-07-18",
+      "excerpt": "A milestone for compute providers joining the decentralized inference network.",
+      "linkedinUrl": "https://www.linkedin.com/posts/itarunsaini_buildinpublic-ai-opensource-activity-7484285476141645824-P5yw",
+      "tags": ["Kielo", "BuildInPublic", "GPU"],
+      "body": "Day 7 of building in public.\n\nThe Kielo Windows desktop application is now live. This is a big step toward making it easy for anyone with idle GPU compute to join the network and contribute to decentralized AI inference.\n\nWhat's next:\n• Building the Kielo SDK so developers can integrate with our inference marketplace in minutes\n• Launching our documentation portal to help everyone start building on Kielo\n\nIf you're interested in becoming one of our first compute providers, join the waitlist at www.kielo.in. Early providers will be first to access the network as we roll out services."
+    },
+    {
+      "id": "why-kielo",
+      "title": "Why I'm building Kielo",
+      "date": "2026-07-17",
+      "excerpt": "It started with running out of AI credits while building Matic Studio — not with a random startup idea.",
+      "linkedinUrl": "https://www.linkedin.com/posts/itarunsaini_buildinpublic-ai-opensource-activity-7483906407470260224-hgnv",
+      "tags": ["Kielo", "MaticStudio", "Founders"],
+      "body": "People often ask me, \"Why are you building Kielo?\"\n\nThe answer isn't because I woke up one day with a startup idea. It's because I hit a wall.\n\nA few years ago, I joined a video animation company and learned how AI-powered video production works behind the scenes. That experience inspired me to build Matic Studio — an AI platform for creating animated videos.\n\nMy team and I spent nearly 7 months building it. We received around $1,400 in Google Cloud credits, and every dollar went into development and testing. Then reality hit.\n\nBuilding AI products isn't just about writing code. Every prototype, script generation, cinematic visual, and test run burns credits.\n\nBy the time we had something worth showing, I had an engine — but no fuel. The product was ready for real users, yet I couldn't afford the inference costs to keep it running.\n\nThat's when I asked: why is access to AI limited by compute costs when so many powerful open-source models already exist?\n\nThe real problem wasn't the models. It was the lack of affordable compute and an easy way to access it.\n\nThat question became the beginning of Kielo — a decentralized AI inference marketplace where anyone with idle GPU power can contribute compute, and developers can run open-source models at a fraction of today's cost.\n\nI don't want another founder to abandon a great product simply because they ran out of AI credits. The AI era should be limited by imagination — not by compute costs.\n\nThis is why I'm building Kielo."
+    },
+    {
+      "id": "kielo-desktop-launch",
+      "title": "Launching the Kielo Desktop App for early providers",
+      "date": "2026-07-17",
+      "excerpt": "Turn idle GPU time into income. First 500 providers get 0% platform fees for life.",
+      "linkedinUrl": "https://www.linkedin.com/posts/itarunsaini_buildinpublic-opensourceai-aiinfrastructure-activity-7483928524551151616-aSE0",
+      "tags": ["Kielo", "AIInfrastructure", "GPU"],
+      "body": "Today we're launching the Kielo Desktop App for early providers.\n\nIf you have an idle GPU, you can soon turn it into income by running open-source AI models and contributing compute to the Kielo network.\n\nAvailable today for macOS. Windows and Linux support are coming soon.\n\nEarly provider offer: the first 500 providers to join Kielo will receive 0% platform fees for life.\n\nWe're onboarding providers first to build a reliable, decentralized AI compute network. Once we have enough providers online, we'll open the Kielo API Gateway so developers can access fast, affordable AI inference through a single API.\n\nOur mission is simple: instead of relying only on expensive centralized GPU clusters, unlock the idle compute already sitting on millions of desktops around the world.\n\nDownload the macOS app and join the waitlist at https://www.kielo.in."
+    },
+    {
+      "id": "kielo-day-0",
+      "title": "Day 0 — Building Kielo in public",
+      "date": "2026-07-07",
+      "excerpt": "Every startup begins with a problem. Mine started with expensive AI inference bills.",
+      "linkedinUrl": "https://www.linkedin.com/posts/itarunsaini_buildinginpublic-day0-startup-activity-7480105168785616896-qHeT",
+      "tags": ["Kielo", "BuildInPublic", "AI"],
+      "body": "Every startup begins with a problem. Mine started with a simple frustration.\n\nFor the last few months, I've been building AI products. Like most developers, I rely heavily on LLMs for coding, debugging, and experimentation. But as my usage grew, so did the API bill. It got expensive — fast.\n\nI thought I'd just run open-source models locally on a MacBook Air M4. Even with modern hardware, running the best open-source models locally isn't practical for many real-world workloads. You compromise on quality, wait forever, or rent expensive GPUs anyway.\n\nThat made me ask: why is AI inference still so expensive?\n\nThe answer wasn't just GPUs — it's the infrastructure behind them. The largest AI companies have invested billions into centralized clusters. Those investments enabled breakthroughs, but they also created enormous costs that every API request helps pay for.\n\nWhat if trying to beat them at their own game is the wrong strategy?\n\nWhat if we built a network where idle GPUs around the world work together to serve AI inference — making powerful open-source models dramatically more affordable?\n\nThat's the idea behind Kielo.\n\nFrom Day 0 onward, I'm sharing the journey publicly — every milestone, mistake, lesson, and technical decision. No hype. Just building in public."
+    },
+    {
+      "id": "ai-compute-like-bitcoin",
+      "title": "What if AI compute worked like Bitcoin?",
+      "date": "2026-07-07",
+      "excerpt": "Install a desktop app, contribute idle hardware, earn when your machine runs inference jobs.",
+      "linkedinUrl": "https://www.linkedin.com/posts/itarunsaini_ai-artificialintelligence-generativeai-activity-7480295709523640320-GK3W",
+      "tags": ["Kielo", "DistributedSystems", "AI"],
+      "body": "Most people think decentralization means blockchain. I think it's much bigger than that.\n\nWith Bitcoin, you download software, join the network, contribute computing power, and earn rewards. Now imagine applying that same idea to AI compute.\n\nDownload a desktop app. It benchmarks your CPU, GPU, RAM, and network. It securely joins a global compute network. When your computer is idle, it processes AI inference requests — and you get paid.\n\nNo complicated setup. No expensive cloud infrastructure. No manual configuration. Just install, connect, and earn.\n\nWhen a developer sends an API request, the network finds the best available machine based on hardware, latency, location, and reliability. The job runs locally. Results return. The compute provider gets paid.\n\nInstead of millions of powerful GPUs sitting idle, why not turn them into global AI infrastructure?\n\nThis is the vision behind Kielo: not another blockchain, not a Bitcoin clone — a decentralized AI compute network where anyone can contribute hardware, developers get lower inference costs, and providers earn from hardware they already own."
+    },
+    {
+      "id": "matic-studio-demo",
+      "title": "Matic Studio — AI-native animation platform",
+      "date": "2026-06-24",
+      "excerpt": "From a prompt or document to a fully animated video in minutes.",
+      "linkedinUrl": "https://www.linkedin.com/posts/itarunsaini_ai-animation-generativeai-activity-7475568403660029954-oY8X",
+      "tags": ["MaticStudio", "AI", "Video"],
+      "body": "Excited to share a demo of Matic Studio — our AI-native animation platform that transforms ideas, documents, scripts, and content into high-quality animated videos.\n\nWith Matic Studio, you can go from a simple prompt or document to a fully animated video in minutes.\n\nWhat you can do:\n• Generate complete explainer videos from a prompt\n• Automatically create scripts, scenes, and animations\n• Edit and customize every scene visually\n• Produce engaging educational, technical, and business content at scale\n\nWe're building Matic Studio to make professional animation accessible to everyone — without requiring animation expertise.\n\nTry it at https://maticstudio.site/"
+    },
+    {
+      "id": "matic-motion-details",
+      "title": "Small details make great animations",
+      "date": "2026-06-21",
+      "excerpt": "A falling leaf test at Matic Studio — timing, curves, and storytelling.",
+      "linkedinUrl": "https://www.linkedin.com/posts/itarunsaini_animation-motiondesign-motiongraphics-activity-7474257711082262528-ea3N",
+      "tags": ["MaticStudio", "Animation", "Design"],
+      "body": "Small details make great animations.\n\nWe've been experimenting with natural motion at Matic Studio, and a falling leaf animation is one of our latest tests.\n\nWhat seems simple is actually a combination of timing, motion curves, and visual storytelling working together to create something that feels natural and engaging.\n\nThis is just one small step toward our vision of making high-quality animated content more accessible with AI.\n\nCheck out what we're building: https://maticstudio.site/"
+    }
+  ]
+}
